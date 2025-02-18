@@ -125,26 +125,26 @@ location: Text field for storing the current base location.
  
 **c. tbl_order_details**
 
-   order_id
-   
-   customer_id
-   
-   restaurant_id
-   
-   order_date
-   
-   delivery_time
-   
-   status
-   
-   total_amount
-   
-   payment_mode
-   
-   discount_applied
-   
-   feedback_rating
-   
+     order_id
+     
+     customer_id
+     
+     restaurant_id
+     
+     order_date
+     
+     delivery_time
+     
+     status
+     
+     total_amount
+     
+     payment_mode
+     
+     discount_applied
+     
+     feedback_rating
+     
 **Explanation:**
 
 order_id: Auto-incrementing primary key.
@@ -172,23 +172,23 @@ ON DELETE CASCADE: Ensures orders are deleted if the corresponding customer or r
 
 **d. tbl_deliveries**
 
-   delivery_id
-   
-   order_id
-   
-   delivery_person_id
-   
-   delivery_status
-   
-   distance
-   
-   delivery_time
-   
-   estimated_time
-   
-   delivery_fee
-   
-   vehicle_type
+     delivery_id
+     
+     order_id
+     
+     delivery_person_id
+     
+     delivery_status
+     
+     distance
+     
+     delivery_time
+     
+     estimated_time
+     
+     delivery_fee
+     
+     vehicle_type
    
 **Explanation:**
 
@@ -216,25 +216,25 @@ ON DELETE SET NULL for delivery_person_id: If a delivery person is removed, thei
  
 **e. tbl_restaurant**
 
-    restaurant_id
-    
-    name
-    
-    cuisine_type
-    
-    location
-    
-    owner_name
-    
-    average_delivery_time
-    
-    contact_number
-    
-    rating
-    
-    total_orders
-    
-    is_active
+      restaurant_id
+      
+      name
+      
+      cuisine_type
+      
+      location
+      
+      owner_name
+      
+      average_delivery_time
+      
+      contact_number
+      
+      rating
+      
+      total_orders
+      
+      is_active
     
 **Explanation:**
 
