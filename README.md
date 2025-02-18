@@ -142,8 +142,10 @@ is_active: Boolean field, defaults to TRUE.
 
 **5. SQL Queries for Data Analysis**
 Below are 20 SQL queries to analyze food delivery trends:
+
 **Total number of orders placed:**
 SELECT COUNT(*) FROM tbl_order_details;
+
 **Most popular restaurant:**
 SELECT restaurant_id, COUNT(*) as order_count FROM tbl_order_details GROUP BY restaurant_id ORDER BY order_count DESC LIMIT 1;
 **Average order value:**
