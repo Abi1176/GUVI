@@ -28,18 +28,30 @@ SQL Query Execution: Run custom SQL queries for deeper insights.
  
  
 **4. Database Schema**
+
 The SQL database includes the following tables:
+
 **a. tbl_customers**
        customer_id
+       
        name
+       
        email
+       
        phone
+       
        location
+       
        signup_date
+       
        is_premium
+       
        preferred_cuisine
+       
        total_orders
+       
        average_rating
+       
 **Explanation:**
 customer_id: Auto-incrementing primary key.
 name: Stores the full name (up to 255 characters).
