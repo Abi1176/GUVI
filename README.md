@@ -34,7 +34,7 @@ The Streamlit app is the front-end of this tool, designed to provide a user-frie
 
 **Data Entry:** Users can add new records for orders, customers, restaurants, and deliveries.
 
-**Dynamic Table Management: **Ability to create new tables or add columns dynamically.
+**Dynamic Table Management:** Ability to create new tables or add columns dynamically.
 
 **Visual Analytics:** Data visualization through interactive charts.
 
