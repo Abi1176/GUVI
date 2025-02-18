@@ -141,6 +141,7 @@ total_orders: Integer field, defaults to 0.
 is_active: Boolean field, defaults to TRUE.
 
 **5. SQL Queries for Data Analysis**
+
 Below are 20 SQL queries to analyze food delivery trends:
 
 **Total number of orders placed:**
@@ -148,40 +149,58 @@ SELECT COUNT(*) FROM tbl_order_details;
 
 **Most popular restaurant:**
 SELECT restaurant_id, COUNT(*) as order_count FROM tbl_order_details GROUP BY restaurant_id ORDER BY order_count DESC LIMIT 1;
+
 **Average order value:**
 SELECT AVG(total_amount) From tbl_order_details;
+
 **Count of customers who placed more than 5 orders:**
 SELECT customer_id, COUNT(*) From tbl_order_details GROUP BY customer_id HAVING COUNT(*) > 5;
+
 **Number of pending orders:**
 SELECT COUNT(*) From tbl_order_details WHERE status = 'Pending';
+
 **Orders by cuisine type:**
 SELECT r.cuisine_type, COUNT(o.order_id) From tbl_order_details o JOIN tbl_restaurant r ON o.restaurant_id = r.restaurant_id GROUP BY r.cuisine_type;
+
 **Top 5 customers based on total spending:**
 SELECT customer_id, SUM(total_amount) AS total_spent From tbl_order_details GROUP BY customer_id ORDER BY total_spent DESC LIMIT 5;
+
 **Orders completed within 30 minutes:**
 SELECT COUNT(*) FROM tbl_deliveries WHERE delivery_time - order_date <= INTERVAL '30 MINUTES';
+
 **Percentage of completed deliveries:**
 SELECT (COUNT(*) FILTER(WHERE delivery_status = 'Completed') * 100.0) / COUNT(*) AS completion_rate FROM tbl_deliveries;
+
 **Average delivery time:**
 SELECT AVG(EXTRACT(EPOCH FROM delivery_time - order_date) / 60) AS avg_delivery_time FROM tbl_deliveries;
+
 **Restaurant with the highest revenue:**
 SELECT restaurant_id, SUM(total_amount) From tbl_order_details GROUP BY restaurant_id ORDER BY SUM(total_amount) DESC LIMIT 1;
+
 **Orders by month:**
 SELECT DATE_TRUNC('month', order_date) AS month, COUNT(*) From tbl_order_details GROUP BY month;
+
 **Customer retention rate:**
 SELECT COUNT(DISTINCT customer_id) * 100.0 / (SELECT COUNT(*) FROM tbl_customers) From tbl_order_details;
+
 **Percentage of orders that include delivery:**
 SELECT (COUNT(DISTINCT order_id) * 100.0) / (SELECT COUNT(*) From tbl_order_details) FROM tbl_deliveries;
+
 **Restaurant with the most late deliveries:**
 SELECT restaurant_id, COUNT(*) FROM tbl_deliveries WHERE delivery_status = 'Pending' GROUP BY restaurant_id ORDER BY COUNT(*) DESC LIMIT 1;
+
 **Average number of items per order:**
 SELECT AVG(item_count) From tbl_order_details;
+
 **Peak order hours:**
 SELECT EXTRACT(HOUR FROM order_date) AS hour, COUNT(*) From tbl_order_details GROUP BY hour ORDER BY COUNT(*) DESC;
+
 **Revenue per customer:**
 SELECT customer_id, SUM(total_amount) From tbl_order_details GROUP BY customer_id;
+
 **Most frequently ordered item:**
 SELECT cuisine_type, COUNT(*) FROM tbl_restaurant GROUP BY item_name ORDER BY COUNT(*) DESC LIMIT 1;
+
 **Order frequency per restaurant:**
 SELECT restaurant_id, COUNT(*) From tbl_order_details GROUP BY restaurant_id ORDER BY COUNT(*) DESC;
 
