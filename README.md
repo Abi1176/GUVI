@@ -1,6 +1,8 @@
 # Zomato Food Delivery Data Insights
 **1. Project Overview**
 As a data scientist at Zomato, the goal of this project is to enhance operational efficiency and improve customer satisfaction by analyzing food delivery data. The interactive Streamlit tool enables seamless data entry and management of orders, customers, restaurants, and deliveries. The system supports robust database operations like adding columns or creating new tables dynamically while maintaining compatibility with existing code.
+
+
 **2. Source Code**
 This project consists of multiple Python scripts for dataset generation, database management, and Streamlit app development. The key components are:
 a. Dataset Generation (DatasetCreation.py)
@@ -14,6 +16,8 @@ c. Streamlit App (ZomatoStreamlit.py)
 Interactive interface for data entry and real-time analysis.
 Allows users to insert, update, and view records.
 Supports on-the-fly schema modifications.
+
+
 **3. Streamlit App**
 The Streamlit app is the front-end of this tool, designed to provide a user-friendly interface for managing and analyzing food delivery data.
 Key Features:
@@ -178,6 +182,7 @@ SELECT customer_id, SUM(total_amount) From tbl_order_details GROUP BY customer_i
 SELECT cuisine_type, COUNT(*) FROM tbl_restaurant GROUP BY item_name ORDER BY COUNT(*) DESC LIMIT 1;
 **Order frequency per restaurant:**
 SELECT restaurant_id, COUNT(*) From tbl_order_details GROUP BY restaurant_id ORDER BY COUNT(*) DESC;
+
  
 **6. Instructions to Run the Project**
 Prerequisites
@@ -187,6 +192,7 @@ pip install streamlit pandas numpy sqlalchemy
 Set up the database using the schema provided.
 Run the Streamlit App
 streamlit run app.py
+
 
 **Conclusion**
 This tool empowers Zomato’s team with efficient food delivery data management, real-time analytics, and enhanced customer insights.
