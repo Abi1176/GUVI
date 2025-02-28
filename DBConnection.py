@@ -457,4 +457,10 @@ class ZomatoClass:
         """)
     
     #get_popular_restaurant
-    def 
+    def get_popular_restaurant(self):
+        return self.fetch_data("""
+            SELECT name, cuisine_type, location, owner_name, average_delivery_time, contact_number, rating, total_orders
+            FROM tbl_restaurant
+            ORDER BY total_orders DESC
+            LIMIT 1;
+        """)
