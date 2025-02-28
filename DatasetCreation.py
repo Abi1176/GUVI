@@ -408,3 +408,55 @@ for _ in range(1000, 1500):
 
 df = pd.DataFrame(orderTable)
 df
+
+#Inserts delivery details to database
+
+# Initialize db config
+config = {
+    "host": "gateway01.ap-southeast-1.prod.aws.tidbcloud.com",
+    "user": "2B9qSGSxQso7gBp.root",
+    "port": 4000,
+    "password": "nLUDS0fz3HRQatbm",
+    "database": "SAMPLEZOM"
+}
+
+db_obj = ZomatoClass(**config)
+
+# function for creating Chennai Address
+from faker import Faker
+from faker.providers import BaseProvider
+from datetime import datetime, timedelta
+
+fake = Faker()
+fake = Faker('en_IN')
+
+#fake_time = fake.date_time_between(start_date="today 06:00:00", end_date="today 21:00:00").time()
+
+# Get the current date
+current_date = datetime.today()
+
+# Create delivery table and insert data
+deliveryTable = []
+
+for _ in range(1, 1500):
+    # Generate a fake order datetime within the last 2 years
+    order_datetime = fake.date_time_between(start_date="-2y", end_date="now")
+
+    # Set delivery datetime (30 minutes later)
+    delivery_datetime = order_datetime + timedelta(minutes=85)  # Delivery 30 minutes after order time
+
+    deliveryTable.append((
+        random.randint(1000, 1500),
+        random.randint(1, 31000),
+        random.randint(1, 500),
+        fake.random_element(["Pending", "Delivered", "Cancelled"]),
+        round(random.uniform(1, 50), 2),
+        fake.date_time_between(start_date="-2y", end_date="now"),
+        fake_time,
+        round(random.uniform(1, 500), 2),
+        fake.random_element(["Bike", "Scooter", "Motorcycle", "Electric Bike", "Electric Scooter", "Moped"])
+    ))
+    # db_obj.insert_deliverys(deliveryTable[-1])
+
+df = pd.DataFrame(orderTable)
+df
