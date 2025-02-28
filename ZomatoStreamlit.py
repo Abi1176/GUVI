@@ -293,7 +293,7 @@ def main():
                 ax.set_title("Common Location")
                 st.pyplot(fig) 
 
-            elif insights_choice =="Most popular restaurant"            
+            elif insights_choice =="Most popular restaurant":           
                 st.subheader("Most popular restaurant")
                 popular_restaurant = db_obj.get_popular_restaurant()
                 st.dataframe(popular_restaurant)
